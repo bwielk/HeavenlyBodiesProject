@@ -3,9 +3,9 @@ package planets;
 public class HeavenlyBody {
 	
 	private String name;
-	private int orbitalPeriod;
+	private double orbitalPeriod;
 	
-	public HeavenlyBody(String name, int period){
+	public HeavenlyBody(String name, double period){
 		this.name = name;
 		this.orbitalPeriod = period;
 	}
@@ -14,7 +14,7 @@ public class HeavenlyBody {
 		return name;
 	}
 	
-	public int getOrbitalPeriod(){
+	public double getOrbitalPeriod(){
 		return orbitalPeriod;
 	}
 }
