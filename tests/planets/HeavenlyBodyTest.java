@@ -21,12 +21,17 @@ public class HeavenlyBodyTest {
 
 	@Before
 	public void before() {
+		//Planets
 		planetEarth = new HeavenlyBody("Earth", 365);
 		planetMars = new HeavenlyBody("Mars", 687);
 		planetUranus = new HeavenlyBody("Uranus", 30660);
+		//Moons
+		//--Earth
 		earthSatelliteMoon = new HeavenlyBody("Moon", 27);
+		//--Mars
 		marsSatellitePhobos = new HeavenlyBody("Phobos", 0.3);
 		marsSatelliteDeimos = new HeavenlyBody("Deimos", 1.1);
+		//--Uranus
 		uranusSatelliteTitania = new HeavenlyBody("Titania", 8.7);
 		uranusSatelliteMiranda = new HeavenlyBody("Miranda", 1.4);
 		uranusSatelliteAriel = new HeavenlyBody("Ariel", 2.5);
@@ -45,6 +50,20 @@ public class HeavenlyBodyTest {
 		assertEquals(687, planetMars.getOrbitalPeriod(), 0.1);
 		assertEquals(365, planetEarth.getOrbitalPeriod(), 0.1);
 		assertEquals(30660, planetUranus.getOrbitalPeriod(), 0.1);
+	}
+	
+	@Test
+	public void planetsCanStoreMoons(){
+		assertEquals(true, planetEarth.addMoon(earthSatelliteMoon));
+		assertEquals(1, planetEarth.getMoons());
+		assertEquals(true, planetMars.addMoon(marsSatellitePhobos));
+		assertEquals(true, planetMars.addMoon(marsSatelliteDeimos));
+		assertEquals(2, planetMars.getMoons());
+		assertEquals(true, planetUranus.addMoon(uranusSatelliteTitania));
+		assertEquals(true, planetUranus.addMoon(uranusSatelliteUmbriel));
+		assertEquals(true, planetUranus.addMoon(uranusSatelliteAriel));
+		assertEquals(true, planetUranus.addMoon(uranusSatelliteMiranda));
+		assertEquals(4, planetMars.getMoons());
 	}
 
 }
