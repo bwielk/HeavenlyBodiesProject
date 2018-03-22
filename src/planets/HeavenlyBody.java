@@ -7,11 +7,13 @@ public class HeavenlyBody {
 	private String name;
 	private double orbitalPeriod;
 	private HashSet<HeavenlyBody> satellites;
+	private BodyType bodyType;
 	
-	public HeavenlyBody(String name, double period){
+	public HeavenlyBody(String name, double period, BodyType type){
 		this.name = name;
 		this.orbitalPeriod = period;
 		this.satellites = new HashSet<>();
+		this.bodyType = type;
 	}
 
 	public String getName() {
