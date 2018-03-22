@@ -43,6 +43,6 @@ public class HeavenlyBody {
 	
 	@Override
 	public int hashCode(){
-		return this.name.hashCode() + 17;
+		return this.name.hashCode() + 12;
 	}
 }
