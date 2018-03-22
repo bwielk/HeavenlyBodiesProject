@@ -55,15 +55,19 @@ public class HeavenlyBodyTest {
 	@Test
 	public void planetsCanStoreMoons(){
 		assertEquals(true, planetEarth.addMoon(earthSatelliteMoon));
-		assertEquals(1, planetEarth.getMoons());
+		assertEquals(1, planetEarth.getMoons().size());
 		assertEquals(true, planetMars.addMoon(marsSatellitePhobos));
 		assertEquals(true, planetMars.addMoon(marsSatelliteDeimos));
-		assertEquals(2, planetMars.getMoons());
+		assertEquals(2, planetMars.getMoons().size());
 		assertEquals(true, planetUranus.addMoon(uranusSatelliteTitania));
 		assertEquals(true, planetUranus.addMoon(uranusSatelliteUmbriel));
 		assertEquals(true, planetUranus.addMoon(uranusSatelliteAriel));
 		assertEquals(true, planetUranus.addMoon(uranusSatelliteMiranda));
-		assertEquals(4, planetMars.getMoons());
+		assertEquals(4, planetUranus.getMoons().size());
 	}
-
+	
+	@Test
+	public void theSameSatellitesCannotBeStoredByTheSamePlanet(){
+		//write code
+	}
 }
