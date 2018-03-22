@@ -68,6 +68,12 @@ public class HeavenlyBodyTest {
 	
 	@Test
 	public void theSameSatellitesCannotBeStoredByTheSamePlanet(){
-		//write code
+		assertEquals(true, planetEarth.addMoon(earthSatelliteMoon));
+		earthSatelliteMoon = new HeavenlyBody("Moon", 23);
+		assertEquals(false, planetEarth.addMoon(earthSatelliteMoon));
+		for(HeavenlyBody moon : planetEarth.getMoons()){
+			System.out.println(moon.getName() + " PERIOD : " + moon.getOrbitalPeriod());
+		}
+		assertEquals(1, planetEarth.getMoons().size());
 	}
 }

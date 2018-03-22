@@ -29,4 +29,20 @@ public class HeavenlyBody {
 	public HashSet<HeavenlyBody> getMoons() {
 		return new HashSet<HeavenlyBody>(satellites);
 	}
+	
+	@Override
+	public boolean equals(Object body){
+		if(this == body){
+			return true;
+		}
+		if(body == null || this.getClass() != body.getClass()){
+			return false;
+		}
+		return this.name.equals(((HeavenlyBody)body).getName());
+	}
+	
+	@Override
+	public int hashCode(){
+		return this.name.hashCode() + 17;
+	}
 }
