@@ -24,14 +24,14 @@ public class HeavenlyBody {
 		return orbitalPeriod;
 	}
 
-	public boolean addMoon(HeavenlyBody moon) {
+	public boolean addSatellite(HeavenlyBody moon) {
 		if(moon.getBodyType() == BodyType.SATELLITE){
 			return satellites.add(moon);
 		}
 		return false;
 	}
 
-	private BodyType getBodyType() {
+	public BodyType getBodyType() {
 		return this.bodyType;
 	}
 
@@ -40,21 +40,23 @@ public class HeavenlyBody {
 	}
 	
 	@Override
-	public boolean equals(Object body){
+	public final boolean equals(Object body){
 		if(this == body){
 			System.out.println("(this == body)");
 			return true;
 		}
-		if(body == null || this.getClass() != body.getClass()){
-			System.out.println("(body == null || this.getClass() != body.getClass())");
-			return false;
+
+		if(body instanceof HeavenlyBody){
+			HeavenlyBody theBody = (HeavenlyBody) body;
+			if(this.name == theBody.getName()){
+				return this.bodyType == theBody.getBodyType();
+			}
 		}
-		System.out.println("this.name.equals(((HeavenlyBody)body).getName())");
-		return this.name.equals(((HeavenlyBody)body).getName());
+		return false;
 	}
 	
 	@Override
-	public int hashCode(){
-		return this.name.hashCode() + 12;
+	public final int hashCode(){
+		return this.name.hashCode() + 12 + this.bodyType.hashCode();
 	}
 }

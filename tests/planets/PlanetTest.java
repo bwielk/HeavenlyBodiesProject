@@ -27,18 +27,18 @@ public class PlanetTest {
 
 	@Test
 	public void planetsAcceptSatellites() {
-		assertEquals(true, earth.addMoon(moon));
-		assertEquals(true, mars.addMoon(deimos));
-		assertEquals(true, mars.addMoon(phobos));
+		assertEquals(true, earth.addSatellite(moon));
+		assertEquals(true, mars.addSatellite(deimos));
+		assertEquals(true, mars.addSatellite(phobos));
 		assertEquals(2, mars.getMoons().size());
 	}
 	
 	@Test
 	public void planetsDontAcceptOtherHeavenlyBodiesThanSatellites(){
-		assertEquals(true, earth.addMoon(moon));
-		assertEquals(false, earth.addMoon(mars));
-		assertEquals(false, earth.addMoon(star1));
-		assertEquals(false, earth.addMoon(star2));
+		assertEquals(true, earth.addSatellite(moon));
+		assertEquals(false, earth.addSatellite(mars));
+		assertEquals(false, earth.addSatellite(star1));
+		assertEquals(false, earth.addSatellite(star2));
 		assertEquals(1, earth.getMoons().size());
 	}
 }
