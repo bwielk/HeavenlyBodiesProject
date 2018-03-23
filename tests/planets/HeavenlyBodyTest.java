@@ -79,15 +79,19 @@ public class HeavenlyBodyTest {
 	
 	@Test
 	public void theSameSatellitesCannotBeStoredByTheSamePlanetUranusExample(){
+		System.out.println("Test1");
 		assertEquals(true, planetUranus.addMoon(uranusSatelliteTitania));
 		assertEquals(true, planetUranus.addMoon(uranusSatelliteUmbriel));
 		//Adding the same moon to the planet
+		System.out.println("Test2");
 		assertEquals(false, planetUranus.addMoon(uranusSatelliteUmbriel));
 		//Adding a new HeavenlyBody instance with a name similar to the name of an already added moon
 		HeavenlyBody moonTitania = new Satellite("Titania", 23444);
+		System.out.println("Test3");
 		assertEquals(false, planetUranus.addMoon(moonTitania));
 		//Adding a moon with the name of an already added moon
 		uranusSatelliteUmbriel = new Satellite("Umbriel", 3453);
+		System.out.println("Test4");
 		assertEquals(false, planetUranus.addMoon(uranusSatelliteUmbriel));
 		for(HeavenlyBody moon : planetUranus.getMoons()){
 			System.out.println(moon.getName() + " PERIOD : " + moon.getOrbitalPeriod());
