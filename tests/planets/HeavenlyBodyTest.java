@@ -94,4 +94,15 @@ public class HeavenlyBodyTest {
 		}
 		assertEquals(2, planetUranus.getBodies().size());
 	}
+	
+	@Test
+	public void thequalsMethodIsSymmetric(){
+		HeavenlyBody moon1 = new Satellite("Moon1", 1);
+		HeavenlyBody moon2 = new Satellite("Moon1", 1);
+		HeavenlyBody moon3 = new Satellite("Moon3", 1);
+		assertEquals(true, moon1.equals(moon2));
+		assertEquals(true, moon2.equals(moon1));
+		assertEquals(false, moon2.equals(moon3));
+		assertEquals(false, moon3.equals(moon2));
+	}
 }

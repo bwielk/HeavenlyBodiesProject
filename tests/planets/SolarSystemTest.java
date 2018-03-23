@@ -25,7 +25,7 @@ public class SolarSystemTest {
 	public void solarSystemAcceptsObjectWithTheSameNameButDifferentTypes() {
 		assertEquals(true, solarSystem1.addBody(planet1));
 		assertEquals(true, solarSystem1.addBody(asteroid1));
-		assertEquals(true, solarSystem1.addBody(asteroid2));
+		assertEquals(false, solarSystem1.addBody(asteroid2));
 		assertEquals(2, solarSystem1.getBodies().size());
 	}
 	
