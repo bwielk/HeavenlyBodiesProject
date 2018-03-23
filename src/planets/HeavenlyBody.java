@@ -2,17 +2,17 @@ package planets;
 
 import java.util.HashSet;
 
-public class HeavenlyBody {
+public abstract class HeavenlyBody {
 	
 	private final String name;
 	private final double orbitalPeriod;
-	private final HashSet<HeavenlyBody> satellites;
+	private final HashSet<HeavenlyBody> bodies;
 	protected BodyType bodyType;
 	
 	public HeavenlyBody(String name, double period){
 		this.name = name;
 		this.orbitalPeriod = period;
-		this.satellites = new HashSet<>();
+		this.bodies = new HashSet<>();
 		this.bodyType = null;
 	}
 
@@ -24,19 +24,16 @@ public class HeavenlyBody {
 		return orbitalPeriod;
 	}
 
-	public boolean addSatellite(HeavenlyBody moon) {
-		if(moon.getBodyType() == BodyType.SATELLITE){
-			return satellites.add(moon);
-		}
-		return false;
+	public boolean addBody(HeavenlyBody body) {
+		return bodies.add(body);
 	}
 
 	public BodyType getBodyType() {
 		return this.bodyType;
 	}
 
-	public HashSet<HeavenlyBody> getMoons() {
-		return new HashSet<HeavenlyBody>(satellites);
+	public HashSet<HeavenlyBody> getBodies() {
+		return new HashSet<HeavenlyBody>(bodies);
 	}
 	
 	@Override
@@ -45,7 +42,7 @@ public class HeavenlyBody {
 			System.out.println("(this == body)");
 			return true;
 		}
-
+		
 		if(body instanceof HeavenlyBody){
 			HeavenlyBody theBody = (HeavenlyBody) body;
 			if(this.name == theBody.getName()){

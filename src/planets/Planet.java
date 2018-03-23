@@ -6,5 +6,13 @@ public class Planet extends HeavenlyBody {
 		super(name, period);
 		this.bodyType = BodyType.PLANET;
 	}
-
+	
+	@Override
+	public boolean addBody(HeavenlyBody moon){
+		if(moon.getBodyType() == BodyType.SATELLITE){
+			return super.addBody(moon);
+		}
+		return false;
+	}
+	
 }
