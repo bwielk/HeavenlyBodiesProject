@@ -5,6 +5,7 @@ public enum BodyType {
 	STAR,
 	PLANET,
 	SATELLITE,
-	ASTEROID
+	ASTEROID,
+	SOLAR_SYSTEM
 
 }

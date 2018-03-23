@@ -22,20 +22,20 @@ public class HeavenlyBodyTest {
 	@Before
 	public void before() {
 		//Planets
-		planetEarth = new HeavenlyBody("Earth", 365, BodyType.PLANET);
-		planetMars = new HeavenlyBody("Mars", 687, BodyType.PLANET);
-		planetUranus = new HeavenlyBody("Uranus", 30660, BodyType.PLANET);
+		planetEarth = new Planet("Earth", 365);
+		planetMars = new Planet("Mars", 687);
+		planetUranus = new Planet("Uranus", 30660);
 		//Moons
 		//--Earth
-		earthSatelliteMoon = new HeavenlyBody("Moon", 27, BodyType.SATELLITE);
+		earthSatelliteMoon = new Satellite("Moon", 27);
 		//--Mars
-		marsSatellitePhobos = new HeavenlyBody("Phobos", 0.3, BodyType.SATELLITE);
-		marsSatelliteDeimos = new HeavenlyBody("Deimos", 1.1, BodyType.SATELLITE);
+		marsSatellitePhobos = new Satellite("Phobos", 0.3);
+		marsSatelliteDeimos = new Satellite("Deimos", 1.1);
 		//--Uranus
-		uranusSatelliteTitania = new HeavenlyBody("Titania", 8.7, BodyType.SATELLITE);
-		uranusSatelliteMiranda = new HeavenlyBody("Miranda", 1.4, BodyType.SATELLITE);
-		uranusSatelliteAriel = new HeavenlyBody("Ariel", 2.5, BodyType.SATELLITE);
-		uranusSatelliteUmbriel = new HeavenlyBody("Umbriel", 3.6, BodyType.SATELLITE);
+		uranusSatelliteTitania = new Satellite("Titania", 8.7);
+		uranusSatelliteMiranda = new Satellite("Miranda", 1.4);
+		uranusSatelliteAriel = new Satellite("Ariel", 2.5);
+		uranusSatelliteUmbriel = new Satellite("Umbriel", 3.6);
 	}
 	
 	@Test
@@ -69,7 +69,7 @@ public class HeavenlyBodyTest {
 	@Test
 	public void theSameSatellitesCannotBeStoredByTheSamePlanetEarthExample(){
 		assertEquals(true, planetEarth.addMoon(earthSatelliteMoon));
-		earthSatelliteMoon = new HeavenlyBody("Moon", 23, BodyType.SATELLITE);
+		earthSatelliteMoon = new HeavenlyBody("Moon", 23);
 		assertEquals(false, planetEarth.addMoon(earthSatelliteMoon));
 		for(HeavenlyBody moon : planetEarth.getMoons()){
 			System.out.println(moon.getName() + " PERIOD : " + moon.getOrbitalPeriod());
@@ -84,10 +84,10 @@ public class HeavenlyBodyTest {
 		//Adding the same moon to the planet
 		assertEquals(false, planetUranus.addMoon(uranusSatelliteUmbriel));
 		//Adding a new HeavenlyBody instance with a name similar to the name of an already added moon
-		HeavenlyBody moonTitania = new HeavenlyBody("Titania", 23444, BodyType.SATELLITE);
+		HeavenlyBody moonTitania = new Satellite("Titania", 23444);
 		assertEquals(false, planetUranus.addMoon(moonTitania));
 		//Adding a moon with the name of an already added moon
-		uranusSatelliteUmbriel = new HeavenlyBody("Umbriel", 3453, BodyType.SATELLITE);
+		uranusSatelliteUmbriel = new Satellite("Umbriel", 3453);
 		assertEquals(false, planetUranus.addMoon(uranusSatelliteUmbriel));
 		for(HeavenlyBody moon : planetUranus.getMoons()){
 			System.out.println(moon.getName() + " PERIOD : " + moon.getOrbitalPeriod());

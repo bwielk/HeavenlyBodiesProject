@@ -2,8 +2,9 @@ package planets;
 
 public class Star extends HeavenlyBody {
 
-	public Star(String name, double period, BodyType type) {
-		super(name, period, type);
+	public Star(String name, double period) {
+		super(name, period);
+		this.bodyType = BodyType.STAR;
 	}
 
 }
